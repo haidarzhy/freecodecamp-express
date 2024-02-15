@@ -2,7 +2,11 @@ let express = require('express');
 let app = express();
 require('dotenv').config()
 
-console.log()
+const middleman = (req, res, next) => {
+    console.log(req.method + ' ' + req.path + ' - ' + req.ip);
+}
+
+app.use(middleman);
 
 app.use('/public', express.static(__dirname + "/public"));
 
