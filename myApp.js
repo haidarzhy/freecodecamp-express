@@ -4,6 +4,7 @@ require('dotenv').config()
 
 const middleman = (req, res, next) => {
     console.log(req.method + ' ' + req.path + ' - ' + req.ip);
+    next();
 }
 
 app.use(middleman);
